@@ -54,3 +54,5 @@ app.use('/user', require('./routes/user'));
 
 const PORT = 3000;
 const server  = app.listen(PORT, () => console.log(`\nlistening on port: ${PORT}\n`));
+
+app.use(express.static('static'));
