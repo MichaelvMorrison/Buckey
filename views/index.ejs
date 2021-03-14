@@ -1,16 +1,221 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body text-center">
-      <h1><i class="fab fa-node-js fa-3x"></i></h1>
-      <p>Create an account or login</p>
-      <a href="/user/register" class="btn btn-primary btn-block mb-2">Register</a>
-      <a href="/user/login" class="btn btn-secondary btn-block">Login</a>
-    </div>
-</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<% if ( typeof scripts !== 'undefined') { %>
-  <% scripts.forEach(function(script){ %>
-      <script src="/<%- script %>"></script>
-  <% }); %>
-<% } %>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bucky</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/landing.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Arsha - v2.3.1
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <a href="/" class="logo "><img src="assets/img/moneylogo.png" alt="" ></a>
+      <h1 class="logo mr-auto"><a href="/">Bucky</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/user/login">Sign in</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+        <h1>BUCKY</h1>
+        <h2>Finance Your Future</h2>
+        <h2>We want to help you become financially literate and make the most of your money</h2>
+        <div class="d-lg-flex">
+          <a href="/user/register" class="btn-get-started scrollto">Register Now!</a>
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+      
+              <div class="section-title">
+                <h2>About Us</h2>
+              </div>
+      
+              <div class="row content">
+                <div class="col-lg-6">
+                  <p>
+                    What an account with us will allow you to do: 
+                  </p>
+                  <ul>
+                    <li><i class="ri-check-double-line"></i> Customize how you want to budget you money for each month</li>
+                    <li><i class="ri-check-double-line"></i> See a monthly report of all you expenses so you can visualize where you can save money</li>
+                    <li><i class="ri-check-double-line"></i> Recieve daily financial tips to help educate you on the ins and outs of being financially stable</li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                  <p>
+                    Our platform is geared towards people who would like to start spending smart and manage their money in an efficient way.
+                    It is our goal to provide people with a budgeting tool and the necessary information to be able to start saving money as well.
+                    We want to help you start to save early by educating people on the best ways to save and invest so you don't have to stress about the future.
+                  </p>
+                </div>
+              </div>
+      
+            </div>
+          </section><!-- End About Us Section -->
+
+          <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+            <div class="container" data-aos="fade-up">
+      
+              <div class="section-title">
+                <h2>Features</h2>
+                <p>We offer an array of free services</p>
+              </div>
+      
+              <div class="row">
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                    <h4>A Budgeting Tool</h4>
+                    <p>Customize your monthly budget with your own easy to add categories</p>
+                  </div>
+                </div>
+      
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bx bx-file"></i></div>
+                    <h4><a href="">Monthly Report</a></h4>
+                    <p>Track your spending habits monthly to see where you can save!</p>
+                  </div>
+                </div>
+      
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bx bx-tachometer"></i></div>
+                    <h4><a href="">Financial Advice</a></h4>
+                    <p>If you don't know anything about saving or investing, no need to stress! We will provide you tips and tricks on how to become finacially literate</p>
+                  </div>
+                </div>
+      
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bx bx-layer"></i></div>
+                    <h4><a href="">Savings Predictions</a></h4>
+                    <p>Use our tool to help predict how much you can save in the future by creating a ROTH IRA account and retirement savings plans</p>
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+          </section><!-- End Services Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    
+    <section id="contact" class="contact">
+        <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+                <h3>Bucky</h3>
+                <p>
+                Troy, NY 12180<br>
+                United States <br><br>
+                <strong>Phone:</strong> +1 518 000 000<br>
+                <strong>Email:</strong> financialfive@gmail.com<br>
+                </p>
+            </div>
+            <h5> Don't Let Your Money Get Away From You</h5>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        Brought to you by <strong><span>The Financial Five</span></strong>. 
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/landing.js"></script>
+
+</body>
+
+</html>
