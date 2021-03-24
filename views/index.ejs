@@ -127,10 +127,9 @@
 
     
     <section id="contact" class="contact">
-        <div class="footer-top">
+      <div class="footer-top">
         <div class="container">
-            <div class="row">
-
+          <div class="row">
             <div class="col-lg-3 col-md-6 footer-contact">
                 <h3>Bucky</h3>
                 <p>
@@ -140,10 +139,21 @@
                 <strong>Email:</strong> financialfive@gmail.com<br>
                 </p>
             </div>
-            <h5> Don't Let Your Money Get Away From You</h5>
+            <div class="col-lg-9 col-md-6">
+              <h5> Don't Let Your Money Get Away From You</h5>
             </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <h4>Your financial tip of the week:</h4>
+              <p id = "tipheading">Heading here</p>
+              <p id = "tipbody">Body here</p>
+              <p id = "tipsource">Source here</p>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
+    </section>
     </section>
     <div class="container footer-bottom clearfix">
       <div class="copyright">
@@ -161,3 +171,9 @@
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
+
+  <% if ( typeof scripts !== 'undefined') { %>
+    <% scripts.forEach(function(script){ %>
+        <script src="/<%- script %>"></script>
+    <% }); %>
+  <% } %>
