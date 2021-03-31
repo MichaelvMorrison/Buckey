@@ -1,0 +1,25 @@
+.btn-primary{
+  background-color: #418465;
+  border-color: #418465;
+}
+
+.btn-primary:hover{
+  background-color: #18B903;
+  border-color: #18B903;
+}
+
+.btn-primary:focus{
+  background-color: #18B903;
+  border-color: #18B903;
+  box-shadow: none;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
