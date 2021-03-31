@@ -9,6 +9,15 @@ const User = require('../models/User');
 // Login Page
 router.get('/login', (req,res) => res.render('login'));
 
+// Login Handle
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/user/login',
+    failureFlash: true
+  })(req, res, next);
+});
+
 // Register Page
 router.get('/register', (req,res) => res.render('register'));
 
@@ -81,15 +90,6 @@ router.post('/register', (req,res) => {
         }
       });
   }
-});
-
-// Login Handle
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/user/login',
-    failureFlash: true
-  })(req, res, next);
 });
 
 // Logout Handle
