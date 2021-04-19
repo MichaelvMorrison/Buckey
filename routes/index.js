@@ -10,6 +10,10 @@ router.get('/', (req,res) => res.render('index', {
   scripts: ['js/index.js']
 }));
 
+router.get('/finance', (req,res) => res.render('finance', {
+  scripts: ['js/financial.js']
+}));
+
 router.get('/dashboard', ensureAuthenticated, function(req, res){
   function getBuckets(){
     Bucket.find({ uid: req.user._id}, function(err, buckets){
