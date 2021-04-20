@@ -99,6 +99,21 @@ router.post('/transaction/delete', ensureAuthenticated, (req, res) => {
   }).catch(err => console.log(err));
 });
 
+router.post('/transaction/assign', ensureAuthenticated, (req, res) => {
+  let uid = req.user._id;
+  let b_label = req.body.b_label;
+  let t_label = req.body.t_label;
+
+
+  Bucket.findOne({uid: uid, label: b_label}).then(bucket => {
+    let b_id = bucket._id;
+    Transaction.updateOne({uid: uid, label: t_label}, {bid: b_id}).then(transaction => {
+      req.flash('success_msg', 'Successfully assigned ' + t_label + ' to ' + b_label + '.');
+      res.send();
+    }).catch(err => console.log(err));
+  }).catch(err => console.log(err));
+})
+
 router.post('/bucket/delete', ensureAuthenticated, (req, res) => {
   let uid = req.user._id;
   let label = req.body.label;

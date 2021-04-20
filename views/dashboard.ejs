@@ -117,37 +117,34 @@
       <% } %>
     </div>
   </div>
-  <div class="row mb-4">
-    <div class="col">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBucketModal">New Bucket</button>
-    </div>
-  </div>
-  <div class="row mb-4">
-    <div class="col">
-      <form action="/transaction" method="post">
-        <button type="submit" class="btn btn-primary">Add Dummy Transaction</button>
-      </form>
-    
-      <a href="/transaction"></a>
-    </div>
-  </div>
 
   <% if ( typeof buckets !== 'undefined') { %>
     <h3>Buckets</h3>
     <div class="row mb-4">
       <% buckets.forEach(function(bucket){ %>
         <div class="col-md-3 mb-4">
-          <div class="card">
-            <div class="card-body">
+          <div class="card h-100">
+            <div class="card-header">
               <button type="button" class="close delete-bucket" aria-label="Delete Bucket" data-label="<%-bucket.label%>">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h5 class="card-title"> <%- bucket.label %></h5>
-              <h6 class="card-subtitle mb-2 text-muted">Budget: <%- bucket.budget%></h6>
+              <h5 class="card-title m-0"> <%- bucket.label %></h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Budget: $<%- bucket.budget%></h6>
             </div>
           </div>
         </div>
       <% }); %>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 d-flex">
+          <div class="card-body text-center align-items-center d-flex justify-content-center hover-pointer add-card" data-toggle="modal" data-target="#createBucketModal">
+            <i class="w-100 fas fa-plus fa-3x fa-primary"></i>
+          </div>
+        </div>
+      </div>
+        
     </div>
   <% } %>
 
@@ -156,17 +153,44 @@
     <div class="row mb-4">
       <% transactions.forEach(function(transaction){ %>
         <div class="col-md-3 mb-4">
-          <div class="card">
-            <div class="card-body">
+          <div class="card h-100">
+            <div class="card-header">
               <button type="button" class="close delete-transaction" aria-label="Delete Transaction" data-label="<%-transaction.label%>">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h5 class="card-title"> <%- transaction.label %></h5>
-              <h6 class="card-subtitle mb-2 text-muted">Amount: <%- transaction.amount%></h6>
+              <h5 class="card-title m-0"> <%- transaction.label %></h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Amount: $<%- transaction.amount%></h6>
+            </div>
+            <div class="card-footer">
+              <h6>assign to:</h6>
+              <% if (typeof buckets !== 'undefined') { %>
+                <% buckets.forEach(function(bucket){ %>
+                  <span class="badge badge-primary badge-transaction-assign" data-transactionLabel="<%- transaction.label %>" data-bucketLabel="<%- bucket.label %>"><%- bucket.label %></span>
+                <% }); %>
+              <% } %>
             </div>
           </div>
         </div>
       <% }); %>
+
+      <!-- <form action="/transaction" method="post">
+        <button type="submit" class="btn btn-primary">Add Dummy Transaction</button>
+      </form> -->
+
+      <div class="col-md-3 mb-4">
+        <form id="addTransaction" action="/transaction" method="POST"></form>
+          <a href="javascript:{}" onclick="document.getElementById('addTransaction').submit();">
+            <div class="card h-100 d-flex">
+              <div class="card-body text-center align-items-center d-flex justify-content-center hover-pointer add-card">
+                <i class="w-100 fas fa-plus fa-3x fa-primary"></i>
+              </div>
+            </div>
+          </a>
+        </form>
+      </div>
+
     </div>
   <% } %>
 </div>

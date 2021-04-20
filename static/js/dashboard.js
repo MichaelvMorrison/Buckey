@@ -38,7 +38,6 @@ function handleBucketDeletion(){
     var label = $(this).attr('data-label');
 
     let data = {label: label};
-    console.log(data);
 
     fetch("/bucket/delete", {
       method: "POST",
@@ -50,6 +49,22 @@ function handleBucketDeletion(){
   });
 }
 
+function handleTransactionAssign(){
+  $('.badge-transaction-assign').on('click', function(){
+    var b_label = $(this).attr('data-bucketLabel');
+    var t_label = $(this).attr('data-transactionLabel');
+
+    var data = {b_label: b_label, t_label: t_label};
+    fetch("/transaction/assign", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data),
+    }).then(res => {
+      window.location.replace("/dashboard");
+    })
+  });
+}
+
 $(document).ready(function(){
   if($(".alert-danger")[0]){
     $('#createBucketModal').modal('show');
@@ -58,4 +73,6 @@ $(document).ready(function(){
   handleTransactionDeletion();
 
   handleBucketDeletion();
+
+  handleTransactionAssign();
 });
