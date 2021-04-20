@@ -1,3 +1,11 @@
+a{
+  color: #418465;
+}
+
+a:hover{
+  color: #18B903;
+}
+
 .btn-primary{
   background-color: #418465;
   border-color: #418465;

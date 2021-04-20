@@ -12,12 +12,27 @@ router.get('/', (req,res) => res.render('index', {
 
 router.get('/dashboard', ensureAuthenticated, function(req, res){
   function getBuckets(){
-    Bucket.find({ uid: req.user._id}, function(err, buckets){
-      if(err){
-        console.log(err);
-      }else{
-        getTransactions(buckets)
+    var _buckets;
+    Bucket.find({ uid: req.user._id}).then(function(buckets){
+      _buckets = buckets;
+      var queries = [];
+      buckets.forEach(function(bucket){
+        queries.push(Transaction.find({uid: req.user._id, bid:bucket._id}));
+      });
+
+      return Promise.all(queries);
+    }).then(function(t){
+      for(var i = 0; i < _buckets.length; i++){
+        var spent = 0;
+        t[i].forEach(function(t){
+          spent = spent + Number(t.amount);
+        })
+        _buckets[i]['remaining'] = (Number(_buckets[i]['budget']) - spent).toFixed(2);
+        _buckets[i]['transactions'] = t[i];
       }
+      getTransactions(_buckets);
+    }).catch(function(err){
+      console.log(err);
     });
   }
 
@@ -27,16 +42,19 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
         console.log(err);
       }else{
         res.render('dashboard', {
-          buckets: buckets,
-          transactions: transactions,
-          scripts: ['js/dashboard.js'],
-          user: req.user
-        });
+        buckets: buckets,
+        transactions: transactions,
+        scripts: ['js/dashboard.js'],
+        user: req.user
+      });
       }
     });
   }
 
-  buckets = [];
+  function assignValue(a, b){
+
+  }
+
   getBuckets();
 });
 
