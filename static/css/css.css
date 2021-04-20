@@ -3,6 +3,32 @@
   border-color: #418465;
 }
 
+.badge-primary{
+  background-color: #418465;
+  border-color: #418465;
+}
+
+.badge-primary:hover{
+  background-color: #18B903;
+  border-color: #18B903;
+}
+
+.hover-pointer:hover{
+  cursor: pointer;
+}
+
+.add-card{
+  color: #418465;
+}
+
+.add-card:hover{
+  color:  #18B903;
+}
+
+.badge-transaction-assign:hover{
+  cursor: pointer;
+}
+
 .btn-primary:hover{
   background-color: #18B903;
   border-color: #18B903;
