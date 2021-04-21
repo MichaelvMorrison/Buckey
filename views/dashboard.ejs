@@ -55,9 +55,31 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<header id="header" class="fixed-top dont-leave">
+  <div class="container d-flex align-items-center">
+    <a href="/" class="logo"><img class="mb-2" src="assets/img/moneylogowhite.png" alt="" ></a>
+    <h1 class="logo mr-auto"><a href="/">Bucky</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Features</a></li>
+        <li><a href="/user/register">Register</a></li>
+        <li><a href="/user/login">Sign in</a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+    
+
+  </div>
+</header><!-- End Header -->
+
+<div class="container-fluid top-78">
   <div class="row">
-    <div class="col">
+    <div class="col text-center">
       <h1 class="mt-4">Dashboard</h1>
       <p class="lead mb-3">Welcome <%= user.first_name + ' ' + user.last_name %></p>
       <% if(success_msg != '') { %>

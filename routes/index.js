@@ -46,11 +46,11 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
         console.log(err);
       }else{
         res.render('dashboard', {
-        buckets: buckets,
-        transactions: transactions,
-        scripts: ['js/dashboard.js'],
-        user: req.user
-      });
+          buckets: buckets,
+          transactions: transactions,
+          scripts: ['js/dashboard.js'],
+          user: req.user
+        });
       }
     });
   }
