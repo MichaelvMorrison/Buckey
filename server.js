@@ -5,7 +5,7 @@ mongoose.Promise = require('bluebird');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-
+//const cron = require('node-cron');
 const app = express();
 
 
@@ -49,6 +49,7 @@ app.use((req, res, next) => {
   next();
 });
 
+//cron.schedule('* * * * * *',)
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/user'));
