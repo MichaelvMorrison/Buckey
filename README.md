@@ -22,13 +22,13 @@ in the directory of your choosing.
 If you don't have git installed you can download this repsository by downloading it as a ![.zip](https://github.com/MichaelvMorrison/Bucky/archive/refs/heads/main.zip)
 
 ### Installing npm packages
-Once you have the repository downloaded you'll need to install the required npm packages by opening a terminal / cmd prompt in that directory and running:
+Once you have the repository downloaded you'll need to install the required npm packages by opening a terminal / cmd prompt in the home directory and running:
 ```
 npm i
 ```
 
 ### Starting the Server
-With a terminal / cmd prompt still running in that directory, run:
+With a terminal / cmd prompt still running in the home, run:
 ```
 npm run start
 ```
