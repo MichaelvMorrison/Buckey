@@ -28,7 +28,7 @@ npm i
 ```
 
 ### Starting the Server
-With a terminal / cmd prompt still running in the home, run:
+With a terminal / cmd prompt still running in the home directory, run:
 ```
 npm run start
 ```
