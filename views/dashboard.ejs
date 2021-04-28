@@ -84,6 +84,10 @@
     <div class="col text-center">
       <h1 class="mt-4">Dashboard</h1>
       <p class="lead mb-3">Welcome <%= user.first_name + ' ' + user.last_name %></p>
+      <div class="budget-info">
+        <h6>Total Monthly Budget: $<%-user.monthly_budget%></h6>
+        <h6>Monthly Budget Remaining: $<%-monthly_budget_remaining%></h6>
+      </div>
       <% if(success_msg != '') { %>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <%= success_msg %>

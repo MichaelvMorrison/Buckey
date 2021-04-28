@@ -23,11 +23,11 @@ router.get('/register', (req,res) => res.render('register'));
 
 // Register Handle
 router.post('/register', (req,res) => {
-  const {first_name, last_name, email, password, password2} = req.body;
+  const {first_name, last_name, email, monthly_budget, password, password2} = req.body;
   let errors = [];
 
   // Check required fields
-  if(!first_name || !last_name || !email || !password || !password2){
+  if(!first_name || !last_name || !email || !monthly_budget || !password || !password2){
     errors.push({ msg: 'Please fill in all fields.' });
   }
 
@@ -48,6 +48,7 @@ router.post('/register', (req,res) => {
       first_name,
       last_name,
       email,
+      monthly_budget,
       password,
       password2
     });
@@ -63,6 +64,7 @@ router.post('/register', (req,res) => {
             first_name,
             last_name,
             email,
+            monthly_budget,
             password,
             password2
           });
@@ -71,8 +73,12 @@ router.post('/register', (req,res) => {
             first_name,
             last_name,
             email,
+            monthly_budget,
             password
           });
+
+          console.log(newUser);
+          console.log(newUser.monthly_budget);
 
           // Hash Password
           bcrypt.genSalt(10, (err, salt) => 

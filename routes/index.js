@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs');
+
 const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 
@@ -17,6 +19,8 @@ router.get('/finance', (req,res) => res.render('finance', {
 router.get('/dashboard', ensureAuthenticated, function(req, res){
   function getBuckets(){
     var _buckets;
+    var monthly_budget_remaining = req.user.monthly_budget;
+    console.log(monthly_budget_remaining);
     Bucket.find({ uid: req.user._id}).then(function(buckets){
       _buckets = buckets;
       var queries = [];
@@ -31,16 +35,17 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
         t[i].forEach(function(t){
           spent = spent + Number(t.amount);
         })
+        monthly_budget_remaining -= spent;
         _buckets[i]['remaining'] = (Number(_buckets[i]['budget']) - spent).toFixed(2);
         _buckets[i]['transactions'] = t[i];
       }
-      getTransactions(_buckets);
+      getTransactions(_buckets, monthly_budget_remaining);
     }).catch(function(err){
       console.log(err);
     });
   }
 
-  function getTransactions(buckets){
+  function getTransactions(buckets, monthly_budget_remaining){
     Transaction.find({ uid: req.user._id, bid: 0}, function(err, transactions){
       if(err){
         console.log(err);
@@ -48,15 +53,12 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
         res.render('dashboard', {
           buckets: buckets,
           transactions: transactions,
+          monthly_budget_remaining: monthly_budget_remaining,
           scripts: ['js/dashboard.js'],
           user: req.user
         });
       }
     });
-  }
-
-  function assignValue(a, b){
-
   }
 
   getBuckets();
@@ -92,8 +94,11 @@ router.post('/bucket', ensureAuthenticated, (req,res) => {
 });
 
 router.post('/transaction', ensureAuthenticated, (req, res) => {
+  let rawdata = fs.readFileSync('static/json/transaction_labels.json');
+  let labels = JSON.parse(rawdata).labels;
+
   function getLabel(){
-    return 'LABEL: ' + ((Math.random() + 1).toString(36).substring(2));
+    return labels[Math.floor(Math.random() * labels.length)];
   }
   function getAmount(){
     return (Math.random() * 100).toFixed(2);

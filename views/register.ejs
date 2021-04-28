@@ -44,6 +44,22 @@
           />
         </div>
         <div class="form-group">
+          <label for="budget">Total Monthly Budget</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">$</div>
+            </div>
+            <input 
+              type="number"
+              id="monthly_budget"
+              name="monthly_budget"
+              class="form-control"
+              placeholder="0"
+              value="<%= typeof monthly_budget != 'undefined' ? monthly_budget : '' %>"
+              />
+          </div>
+        </div>
+        <div class="form-group">
           <label for="password">Password</label>
           <input
             type="password"
