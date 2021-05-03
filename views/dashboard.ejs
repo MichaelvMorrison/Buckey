@@ -203,6 +203,125 @@
   <% } %>
 </div>
 
+
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Line Chart</title>
+    <!--Chart.js JS CDN--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
+  </head>
+  <body>
+
+    <% if ( typeof buckets !== 'undefined' && typeof transactions !== undefined && buckets.length > 0) { %>
+    <div class="container-fluid text-center">
+
+        <div class="d-flex flex-column justify-content-center">
+          <h2 class="chart-heading">Your Monthly Spending Breakdown!</h2>
+          <canvas id="myChart2" class="d-flex justify-content-center"></canvas>
+        </div>
+      <% if ( typeof buckets !== 'undefined') { %>
+        <% var serverBuckets = []; %>
+        <% buckets.forEach(function(bucket){ %>
+          <% serverBuckets.push(parseFloat(bucket.budget).toFixed(2) - parseFloat(bucket.remaining).toFixed(2)) %>
+          <% }); %>
+      <script>
+        var clientBucketsjson = {};
+        var clientBuckets = {};
+        clientBucketsjson = '<%- JSON.stringify(buckets) %>';
+        clientBuckets = JSON.parse(clientBucketsjson)
+        var bucketNames = [];
+        var clientRemains = [];
+        clientRemains = '<%- JSON.stringify(serverBuckets) %>';
+        clientRemains = JSON.parse(clientRemains);
+        
+        for (i =0; i < clientBuckets.length; i++){
+          console.log(clientBuckets[i].label) 
+          bucketNames.push(clientBuckets[i].label);
+        };
+      var ctx = document.getElementById('myChart2').getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+              labels: bucketNames,
+              datasets: [{
+                label: 'My First Dataset',
+                data: clientRemains,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+              }]
+            },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+      </script>
+      <% } %>
+
+      <div class="d-flex flex-column justify-content-center">
+        <h2 class="chart-heading">Your Previous Months Spending Summary</h2>
+        <canvas id="myChart"></canvas>
+      </div>
+
+        <script>
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ["October", "November", "December", "January", "February", "March", "April"],
+                datasets: [{ 
+                    data: [86,114,106,106,107,111,133],
+                    label: "Total",
+                    borderColor: "#3e95cd",
+                    backgroundColor: "#7bb6dd",
+                    fill: false,
+                  }, { 
+                    data: [70,90,44,60,83,90,100],
+                    label: "Spending",
+                    borderColor: "#3cba9f",
+                    backgroundColor: "#71d1bd",
+                    fill: false,
+                  }, { 
+                    data: [10,21,60,44,17,21,17],
+                    label: "Saving",
+                    borderColor: "#ffa500",
+                    backgroundColor:"#ffc04d",
+                    fill: false,
+                  }, { 
+                    data: [6,3,2,2,7,0,16],
+                    label: "Number of purchases",
+                    borderColor: "#c45850",
+                    backgroundColor:"#d78f89",
+                    fill: false,
+                  }
+                ]
+              },
+            });
+        </script>
+
+    </div>
+    <% } %>
+
+  </body>
+</html>
+
+<!--
+<script src="js/Chart.js"></script>
+-->
+
+
+
+
 <% if ( typeof scripts !== 'undefined') { %>
   <% scripts.forEach(function(script){ %>
       <script src="/<%- script %>"></script>

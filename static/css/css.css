@@ -71,3 +71,14 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+
+#myChart2, #myChart {
+  width: 700px !important;
+  height: 500px !important;
+  margin-left: 350px !important;
+  margin-top: 10px !important;
+}
+
+.chart-heading {
+  margin-top: 20px;
+}
